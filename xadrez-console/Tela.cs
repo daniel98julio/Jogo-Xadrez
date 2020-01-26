@@ -20,6 +20,10 @@ namespace xadrez_console {
                 Console.Write(partida.jogadorAtual);
                 Console.ForegroundColor = aux;
             }
+            if(partida.xeque) {
+                Console.WriteLine();
+                Console.WriteLine("XEQUE!");
+            }
             Console.WriteLine();
         }
 
