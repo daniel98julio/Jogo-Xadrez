@@ -10,21 +10,37 @@ namespace xadrez_console {
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine("Turno: " + partida.turno);
-            if(partida.jogadorAtual == Cor.Branca) {
-                Console.Write("Aguardando Jogada: " + partida.jogadorAtual);
+            if(!partida.terminada) {
+                if(partida.jogadorAtual == Cor.Branca) {
+                    Console.Write("Aguardando Jogada: " + partida.jogadorAtual);
+                }
+                else {
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.Write("Aguardando Jogada: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(partida.jogadorAtual);
+                    Console.ForegroundColor = aux;
+                }
+                if(partida.xeque) {
+                    Console.WriteLine();
+                    Console.WriteLine("XEQUE!");
+                }
+                Console.WriteLine();
             }
             else {
-                ConsoleColor aux = Console.ForegroundColor;
-                Console.Write("Aguardando Jogada: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(partida.jogadorAtual);
-                Console.ForegroundColor = aux;
-            }
-            if(partida.xeque) {
+                Console.WriteLine("XEQUEMATE!");
+                if(partida.jogadorAtual == Cor.Branca) {
+                    Console.Write("Vencedor: " + partida.jogadorAtual);
+                }
+                else {
+                    ConsoleColor aux = Console.ForegroundColor;
+                    Console.Write("Vencedor: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(partida.jogadorAtual);
+                    Console.ForegroundColor = aux;
+                }
                 Console.WriteLine();
-                Console.WriteLine("XEQUE!");
             }
-            Console.WriteLine();
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrex partida) {
