@@ -11,22 +11,8 @@ namespace xadrez_console {
                 while(!partida.terminada) {
                     try {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.turno);
+                        Tela.imprimirPartida(partida);
 
-                        if(partida.jogadorAtual == Cor.Branca) {
-                            Console.WriteLine("Aguardando Jogada: " + partida.jogadorAtual);
-                        }
-                        else {
-                            ConsoleColor aux = Console.ForegroundColor;
-                            Console.Write("Aguardando Jogada: ");
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.Write(partida.jogadorAtual);
-                            Console.ForegroundColor = aux;
-                        }
-
-                        Console.WriteLine();
                         Console.WriteLine();
                         Console.Write("Origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
