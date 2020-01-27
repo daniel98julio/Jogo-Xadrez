@@ -6,6 +6,11 @@ using xadrez;
 namespace xadrez_console {
     class Tela {
         public static void imprimirPartida(PartidaDeXadrex partida) {
+            ConsoleColor aux2 = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("***** XADREZ *****");
+            Console.ForegroundColor = aux2;
+            Console.WriteLine();
             imprimirTabuleiro(partida.tab);
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
@@ -67,13 +72,19 @@ namespace xadrez_console {
         public static void imprimirTabuleiro(Tabuleiro tab) {
 
             for (int i=0; i<tab.linhas; i++) {
+                ConsoleColor aux1 = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write(8 - i + " ");
+                Console.ForegroundColor = aux1;
                 for (int j=0; j<tab.colunas; j++) {
                     imprimirPeca(tab.peca(i, j));
                     }
                 Console.WriteLine();
             }
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("  a b c d e f g h");
+            Console.ForegroundColor = aux;
         }
 
         public static void imprimirTabuleiro(Tabuleiro tab, bool [,] posicoesPossiveis) {
@@ -82,7 +93,10 @@ namespace xadrez_console {
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
 
             for(int i = 0;i < tab.linhas;i++) {
+                ConsoleColor aux1 = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write(8 - i + " ");
+                Console.ForegroundColor = aux1;
                 for(int j = 0;j < tab.colunas;j++) {
                     if(posicoesPossiveis[i, j]) {
                         Console.BackgroundColor = fundoAlterado;
@@ -95,7 +109,10 @@ namespace xadrez_console {
                 }
                 Console.WriteLine();
             }
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("  a b c d e f g h");
+            Console.ForegroundColor = aux;
             Console.BackgroundColor = fundoOriginal;
         }
 
