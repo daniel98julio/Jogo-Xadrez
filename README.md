@@ -12,6 +12,6 @@ As seguintes dependências são necessárias para o projeto:
 
 ## Como executar o projeto:
 - Clone o repositório https://github.com/daniel98julio/Jogo-Xadrez.git localmente;
--### Execute os seguintes comandos: 
+### Execute os seguintes comandos: 
 - Execute normalmente o projeto no Visual Studio.
 - Caso esteja pelo VSCode, execute o comando: dotnet run
